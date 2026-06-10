@@ -62,11 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
     'LOGO/POPMART logo.png',
     'LOGO/MOLLY logo.png',
     '泡泡玛特添加素材“经典小画家Molly”.jpg',
-    'Angry Molly白底图/01.png',
-    'Angry Molly白底图/02.png',
-    'Angry Molly白底图/03.png',
-    'Angry Molly白底图/04.png',
-    'Angry Molly白底图/05.png',
     '二维码.png'
   ];
 
