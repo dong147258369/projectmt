@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentMoodIndex = 0;
   let hasScratched = false;
   let gameCompleted = false;
+  let selectedGameImg = '';
 
   // ==========================================
   // 1. 资源预加载模块
@@ -263,7 +264,48 @@ document.addEventListener('DOMContentLoaded', () => {
     // 渲染对应配置
     const config = moodConfigs[currentMoodIndex];
     gameTitle.textContent = config.title;
-    canvasUnderlay.src = config.img;
+    
+    // 随机选择一个已知泡泡玛特 IP 形象 (经典小画家 + 5款 Angry Molly + 30款新增盲盒图)
+    const knownIPImages = [
+      '泡泡玛特添加素材“经典小画家Molly”.jpg',
+      'Angry Molly白底图/01.png',
+      'Angry Molly白底图/02.png',
+      'Angry Molly白底图/03.png',
+      'Angry Molly白底图/04.png',
+      'Angry Molly白底图/05.png',
+      '微信图片_20260610163917_132_3.jpg',
+      '微信图片_20260610163918_133_3.jpg',
+      '微信图片_20260610163918_134_3.jpg',
+      '微信图片_20260610163919_135_3.jpg',
+      '微信图片_20260610163920_136_3.jpg',
+      '微信图片_20260610163921_137_3.jpg',
+      '微信图片_20260610163923_138_3.jpg',
+      '微信图片_20260610163925_139_3.jpg',
+      '微信图片_20260610163926_140_3.jpg',
+      '微信图片_20260610163928_141_3.jpg',
+      '微信图片_20260610163930_142_3.jpg',
+      '微信图片_20260610163931_143_3.jpg',
+      '微信图片_20260610163933_144_3.jpg',
+      '微信图片_20260610163934_145_3.jpg',
+      '微信图片_20260610163936_146_3.jpg',
+      '微信图片_20260610163937_147_3.jpg',
+      '微信图片_20260610163939_148_3.jpg',
+      '微信图片_20260610163940_149_3.jpg',
+      '微信图片_20260610163941_150_3.jpg',
+      '微信图片_20260610163942_151_3.jpg',
+      '微信图片_20260610163943_152_3.jpg',
+      '微信图片_20260610163945_153_3.jpg',
+      '微信图片_20260610163946_154_3.jpg',
+      '微信图片_20260610163947_155_3.jpg',
+      '微信图片_20260610163948_156_3.jpg',
+      '微信图片_20260610163949_157_3.jpg',
+      '微信图片_20260610163949_158_3.jpg',
+      '微信图片_20260610163950_159_3.jpg',
+      '微信图片_20260610163951_160_3.jpg',
+      '微信图片_20260610163952_161_3.jpg'
+    ];
+    selectedGameImg = knownIPImages[Math.floor(Math.random() * knownIPImages.length)];
+    canvasUnderlay.src = selectedGameImg;
     
     // 重置进度和按钮
     gameCompleted = false;
@@ -563,9 +605,32 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   function setupPosterScreen() {
     const config = moodConfigs[currentMoodIndex];
-    posterMainImg.src = config.img;
-    posterSlogan.textContent = config.slogan;
-    posterSubtext.textContent = config.subtext;
+    posterMainImg.src = selectedGameImg;
+    
+    if (selectedGameImg === '泡泡玛特添加素材“经典小画家Molly”.jpg') {
+      posterSlogan.textContent = "执笔追梦，初心不忘！";
+      posterSubtext.textContent = "用画笔绘出心中的斑斓王国，以倔强与坚定突破现实的难关。经典小画家 MOLLY 守护你心底那个无拘无束、快乐创作的小孩。";
+    } else if (selectedGameImg.startsWith('微信图片_')) {
+      const specialSlogans = [
+        "抽中限定款！燃力守护者降临！",
+        "喜提隐藏款！快乐因子爆表！",
+        "好运连连！抽中你的治愈伙伴！",
+        "盲盒欧气加满！真我色彩绽放！"
+      ];
+      const specialSubtexts = [
+        "恭喜你在情绪画室中成功抽出你的限定守护伙伴！愿这份奇妙的好运，点燃你对生活的无限热忱与真诚热爱。",
+        "在快节奏的日常里，总有一个心动角色在默默陪伴着你。恭喜抽中隐藏伙伴，让童心与治愈驱散所有压力吧！",
+        "每一份期待，都是与美好相遇的伏笔。你的专属限定伙伴已就位，点击下方即刻前往抽盒机开启更多心动旅程！",
+        "恭喜抽中20周年限定画作角色！愿你无论身处什么年纪，都保留一份孩童般的纯真与好奇心，勇敢前行。"
+      ];
+      
+      const randIdx = Math.floor(Math.random() * specialSlogans.length);
+      posterSlogan.textContent = specialSlogans[randIdx];
+      posterSubtext.textContent = specialSubtexts[randIdx];
+    } else {
+      posterSlogan.textContent = config.slogan;
+      posterSubtext.textContent = config.subtext;
+    }
     
     // 随机一个完美的燃力指数
     const randomBurn = Math.floor(Math.random() * 6) + 95; // 95 - 100 之间随机
