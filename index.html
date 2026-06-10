@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MOLLY与她的20载 - 燃燃情绪画室</title>
+  <!-- Meta Descriptions for SEO -->
+  <meta name="description" content="泡泡玛特MOLLY 20周年特辑互动H5：释放你的内在小火苗，用Angry Molly的炽热生命力治愈烦恼，开启指尖燃画解压之旅，抽取你的限定燃力伙伴！">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Preloads (Optional fallback Google Fonts for icons and english typography) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- App Wrapper (Mobile Container Constraint) -->
+  <div class="app-container" id="app">
+
+    <!-- ==========================================
+         1. LOADING SCREEN
+         ========================================== -->
+    <div class="screen active" id="screen-loading">
+      <canvas class="canvas-particle-bg" id="loading-particles"></canvas>
+      
+      <div class="loader-logo-container">
+        <img class="loader-logo" src="LOGO/POPMART logo.png" alt="泡泡玛特 POPMART" id="loading-popmart-logo">
+        <div class="logo-divider"></div>
+        <img class="loader-sublogo" src="LOGO/MOLLY logo.png" alt="MOLLY" id="loading-molly-logo">
+      </div>
+
+      <div class="loader-molly">
+        <!-- Center painting image of Painter Molly to introduce classic character -->
+        <img src="泡泡玛特添加素材“经典小画家Molly”.jpg" alt="经典小画家MOLLY" id="loading-painter-img">
+      </div>
+
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 15px; width: 100%; z-index: 5;">
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="loading-bar"></div>
+        </div>
+        <div class="progress-text" id="loading-percentage">0%</div>
+        <div class="loading-slogan" id="loading-tip">正在开启燃燃情绪画室...</div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         2. TIMELINE SCREEN
+         ========================================== -->
+    <div class="screen" id="screen-timeline">
+      <!-- Header -->
+      <div class="brand-header">
+        <div class="brand-logos">
+          <img class="logo-img" src="LOGO/POPMART logo.png" alt="POPMART">
+          <div class="logo-divider"></div>
+          <img class="logo-img" src="LOGO/MOLLY logo.png" alt="MOLLY">
+        </div>
+        <div class="brand-tag">20TH ANNIVERSARY</div>
+      </div>
+
+      <div class="timeline-intro">
+        <h1>MOLLY与她的20载</h1>
+        <p>从安静作画的小女孩，到探索宇宙与释放生命力的燃系化身</p>
+      </div>
+
+      <!-- Timeline Slider -->
+      <div class="timeline-slider-outer" id="timeline-slider-container">
+        <div class="timeline-track" id="timeline-track">
+          
+          <!-- Card 1: 2006 -->
+          <div class="timeline-card active" data-index="0">
+            <div class="card-year">2006</div>
+            <div class="card-character-name">经典小画家 MOLLY</div>
+            <div class="card-img-container">
+              <img class="card-img" src="泡泡玛特添加素材“经典小画家Molly”.jpg" alt="经典小画家 MOLLY">
+            </div>
+            <div class="card-desc">
+              灵感源于某次公益活动。小画家MOLLY手持画笔，有着湖蓝色的眼睛和金色微卷的短发，嘟着嘴认真画画，倔强、坚定，又带点小叛逆，渴望用天马行空的想象突破一切难关。
+            </div>
+          </div>
+
+          <!-- Card 2: 2007 -->
+          <div class="timeline-card" data-index="1">
+            <div class="card-year">2007</div>
+            <div class="card-character-name">ROYAL MOLLY</div>
+            <div class="card-img-container">
+              <!-- Custom designed vector-like neon crown structure representing ROYAL MOLLY -->
+              <svg class="card-img" viewBox="0 0 100 100" width="100" height="100">
+                <defs>
+                  <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="5" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                  </filter>
+                </defs>
+                <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255, 235, 59, 0.2)" stroke-width="2" />
+                <path d="M 25 65 L 30 40 L 42 52 L 50 35 L 58 52 L 70 40 L 75 65 Z" fill="none" stroke="#ffeb3b" stroke-width="3" filter="url(#glow)"/>
+                <circle cx="25" cy="37" r="3" fill="#ffeb3b" />
+                <circle cx="50" cy="31" r="3" fill="#ffeb3b" />
+                <circle cx="70" cy="37" r="3" fill="#ffeb3b" />
+                <circle cx="50" cy="50" r="2" fill="#fff" />
+                <line x1="25" y1="68" x2="75" y2="68" stroke="#ffeb3b" stroke-width="2" />
+              </svg>
+            </div>
+            <div class="card-desc">
+              作为童心王国的守护者形象诞生。从她戴上皇冠的那一刻起，就成为玩具王国的主人，默默守护身边每一个人的童心，守护所有人心中那个无拘无束、自由快乐的小孩。
+            </div>
+          </div>
+
+          <!-- Card 3: 2014 -->
+          <div class="timeline-card" data-index="2">
+            <div class="card-year">2014</div>
+            <div class="card-character-name">SPACE MOLLY</div>
+            <div class="card-img-container">
+              <!-- Custom designed vector-like neon astronaut space theme representing SPACE MOLLY -->
+              <svg class="card-img" viewBox="0 0 100 100" width="100" height="100">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(0, 240, 255, 0.2)" stroke-width="2" />
+                <circle cx="50" cy="46" r="22" fill="none" stroke="#00f0ff" stroke-width="3" />
+                <rect x="36" y="38" width="28" height="16" rx="8" fill="none" stroke="#00f0ff" stroke-width="2" />
+                <circle cx="36" cy="50" r="3" fill="#ff3e6c" />
+                <circle cx="64" cy="50" r="3" fill="#ff3e6c" />
+                <!-- Stars -->
+                <path d="M 22 25 L 24 29 L 28 29 L 25 31 L 27 35 L 22 32 L 18 35 L 19 31 L 16 29 L 20 29 Z" fill="#ffeb3b" transform="scale(0.5) translate(40, 20)" />
+                <path d="M 22 25 L 24 29 L 28 29 L 25 31 L 27 35 L 22 32 L 18 35 L 19 31 L 16 29 L 20 29 Z" fill="#ffeb3b" transform="scale(0.4) translate(180, 80)" />
+              </svg>
+            </div>
+            <div class="card-desc">
+              怀揣勇气、好奇心与无限的想象力。她穿上专属太空服、戴上宇航员头盔，在浩瀚无垠的宇宙中勇敢前行，无畏地探索着未知的一切，开拓属于潮玩的崭新视界。
+            </div>
+          </div>
+
+          <!-- Card 4: 2024 -->
+          <div class="timeline-card" data-index="3">
+            <div class="card-year">2024</div>
+            <div class="card-character-name">BABY MOLLY</div>
+            <div class="card-img-container">
+              <!-- Baby pacifier or footprint design representing Baby Molly -->
+              <svg class="card-img" viewBox="0 0 100 100" width="100" height="100">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255, 62, 108, 0.2)" stroke-width="2" />
+                <circle cx="50" cy="40" r="14" fill="none" stroke="#ff3e6c" stroke-width="3" />
+                <circle cx="50" cy="62" r="10" fill="none" stroke="#ff3e6c" stroke-width="3" />
+                <path d="M 40 45 L 60 45" stroke="#ff3e6c" stroke-width="3" />
+                <path d="M 42 62 Q 50 72 58 62" fill="none" stroke="#ffeb3b" stroke-width="3" />
+              </svg>
+            </div>
+            <div class="card-desc">
+              3岁的Baby Molly温萌诞生。她的出现，旨在让身处快节奏都市的你，无论在什么年纪，都在心底留出一个位置给孩童时期的自己，可以放肆哭闹、放肆倾吐委屈。
+            </div>
+          </div>
+
+          <!-- Card 5: 2025 -->
+          <div class="timeline-card" data-index="4">
+            <div class="card-year">2025</div>
+            <div class="card-character-name">ANGRY MOLLY</div>
+            <div class="card-img-container">
+              <!-- Using the first official Angry Molly image from the folder -->
+              <img class="card-img" src="Angry Molly白底图/01.png" alt="Angry Molly">
+            </div>
+            <div class="card-desc">
+              独立延伸的“燃系”形象。撅嘴中融入充满活力的“愤怒”。这非单纯情绪，而是一种“燃烧”的炽热生命力，是对所爱之物的全部热忱，鼓励人们真实感知、勇敢表达自我。
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Slide Tip -->
+      <div class="slider-dots" id="slider-dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="slide-tip">
+        <span>左右滑动探索 MOLLY 20载</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+
+      <!-- Navigation -->
+      <button class="btn-primary" id="btn-goto-mood">
+        <span>步入燃燃画室</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+
+    <!-- ==========================================
+         3. MOOD SELECTOR SCREEN
+         ========================================== -->
+    <div class="screen" id="screen-mood">
+      <!-- Header -->
+      <div class="brand-header">
+        <div class="brand-logos">
+          <img class="logo-img" src="LOGO/POPMART logo.png" alt="POPMART">
+          <div class="logo-divider"></div>
+          <img class="logo-img" src="LOGO/MOLLY logo.png" alt="MOLLY">
+        </div>
+        <div class="brand-tag">EMOTION ROOM</div>
+      </div>
+
+      <div class="mood-title-area">
+        <h2>倾听你的“燃”情绪</h2>
+        <p>选择一个你此刻最想打破的日常状态</p>
+      </div>
+
+      <!-- Mood Selection Grid -->
+      <div class="mood-grid">
+        <!-- Mood 1 -->
+        <div class="mood-item selected" data-mood="0" data-img="Angry Molly白底图/01.png">
+          <div class="mood-left">
+            <span class="mood-name">🧠 脑暴卡壳，创意枯竭</span>
+            <span class="mood-desc">想法被重重封锁，急需点燃灵感火花</span>
+          </div>
+          <div class="mood-right">01</div>
+        </div>
+
+        <!-- Mood 2 -->
+        <div class="mood-item" data-mood="1" data-img="Angry Molly白底图/02.png">
+          <div class="mood-left">
+            <span class="mood-name">🎭 社交疲惫，面具太重</span>
+            <span class="mood-desc">客套迎合太累，想卸下防备真实倾诉</span>
+          </div>
+          <div class="mood-right">02</div>
+        </div>
+
+        <!-- Mood 3 -->
+        <div class="mood-item" data-mood="2" data-img="Angry Molly白底图/03.png">
+          <div class="mood-left">
+            <span class="mood-name">🔒 规则繁琐，深受束缚</span>
+            <span class="mood-desc">渴望打破条条框框，放肆展现野性与叛逆</span>
+          </div>
+          <div class="mood-right">03</div>
+        </div>
+
+        <!-- Mood 4 -->
+        <div class="mood-item" data-mood="3" data-img="Angry Molly白底图/04.png">
+          <div class="mood-left">
+            <span class="mood-name">🧭 迷茫失方向，找不到北</span>
+            <span class="mood-desc">身处喧嚣十字路口，想重拾探索未知的勇气</span>
+          </div>
+          <div class="mood-right">04</div>
+        </div>
+
+        <!-- Mood 5 -->
+        <div class="mood-item" data-mood="4" data-img="Angry Molly白底图/05.png">
+          <div class="mood-left">
+            <span class="mood-name">🌧 委屈积压，急求治愈</span>
+            <span class="mood-desc">把坚硬留给世界，把委屈倾吐给孩童的自己</span>
+          </div>
+          <div class="mood-right">05</div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <button class="btn-primary" id="btn-goto-game">
+        <span>解压画板：即刻释放</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+
+    <!-- ==========================================
+         4. CANVAS INTERACTION SCREEN (SCRATCH GAME)
+         ========================================== -->
+    <div class="screen" id="screen-game">
+      <!-- Header -->
+      <div class="brand-header">
+        <div class="brand-logos">
+          <img class="logo-img" src="LOGO/POPMART logo.png" alt="POPMART">
+          <div class="logo-divider"></div>
+          <img class="logo-img" src="LOGO/MOLLY logo.png" alt="MOLLY">
+        </div>
+        <div class="brand-tag">BURNING CANVAS</div>
+      </div>
+
+      <div class="game-title-area">
+        <h2 id="game-title">释放你的创意燃动力</h2>
+        <p>用手指在灰色阴霾上肆意涂鸦，燃尽束缚！</p>
+      </div>
+
+      <!-- Game Interactive Canvas Area -->
+      <div class="canvas-wrapper">
+        <!-- Colored Image underlay -->
+        <img class="canvas-underlay-img" id="canvas-underlay" src="Angry Molly白底图/01.png" alt="Angry Molly Underlay">
+        
+        <!-- Scratching grey mask overlay canvas -->
+        <canvas id="scratch-canvas"></canvas>
+
+        <!-- Dynamic Fire Sparkles canvas -->
+        <canvas id="particles-canvas"></canvas>
+
+        <!-- Finger guide prompt overlay -->
+        <div class="swipe-instruction" id="swipe-instruction">
+          <!-- Gesture finger icon in svg -->
+          <svg class="swipe-hand-icon" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2">
+            <path d="M12 11V3.5a1.5 1.5 0 0 0-3 0V11M9 11V6a1.5 1.5 0 0 0-3 0v5M15 11v-4a1.5 1.5 0 0 1 3 0v4M6 14.5a3 3 0 0 0 6 0" />
+            <path d="M18 13.5V11a1.5 1.5 0 0 0-3 0v2.5M12 11h3m-9 3.5a4.5 4.5 0 0 0 9 0v-4" />
+            <path d="M6 11V8.5a1.5 1.5 0 0 1 3 0V11" stroke-dasharray="2 2" />
+          </svg>
+          <div class="swipe-text">按住并在屏幕上滑动涂鸦</div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="game-bottom-bar">
+        <div class="burn-progress-container">
+          <span class="burn-progress-label">负能燃尽率:</span>
+          <span class="burn-progress-val" id="burn-progress-val">0%</span>
+        </div>
+        <button class="btn-skip-game" id="btn-skip-game">直接生成海报</button>
+      </div>
+
+      <!-- Navigation (Disabled until target percentage achieved or skip clicked) -->
+      <button class="btn-primary" id="btn-goto-poster" style="opacity: 0.5; pointer-events: none;">
+        <span>生成我的燃力海报</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+
+    <!-- ==========================================
+         5. POSTER RESULT SCREEN
+         ========================================== -->
+    <div class="screen" id="screen-poster">
+      <!-- Header -->
+      <div class="brand-header">
+        <div class="brand-logos">
+          <img class="logo-img" src="LOGO/POPMART logo.png" alt="POPMART">
+          <div class="logo-divider"></div>
+          <img class="logo-img" src="LOGO/MOLLY logo.png" alt="MOLLY">
+        </div>
+        <div class="brand-tag">MY BURNING CARD</div>
+      </div>
+
+      <div class="poster-title-area">
+        <h2>生成专属“燃力海报”</h2>
+        <p>每一份炽热的表达，都值得被世界看见</p>
+      </div>
+
+      <!-- Poster Card -->
+      <div class="poster-card-outer" id="poster-card-container">
+        
+        <!-- Top bar with brand logos inside poster -->
+        <div class="poster-top-bar">
+          <div class="poster-brand-logos">
+            <img class="poster-brand-logo" src="LOGO/POPMART logo.png" alt="POPMART">
+            <div class="logo-divider" style="height: 10px;"></div>
+            <img class="poster-brand-logo" src="LOGO/MOLLY logo.png" alt="MOLLY">
+          </div>
+          <span class="poster-anniversary">MOLLY 20载</span>
+        </div>
+
+        <!-- Poster center graphic -->
+        <div class="poster-content-middle">
+          <div class="poster-neon-bg-glow"></div>
+          <img class="poster-main-img" id="poster-main-img" src="Angry Molly白底图/01.png" alt="Angry Molly Hero">
+        </div>
+
+        <!-- Poster footer metadata -->
+        <div class="poster-footer">
+          <!-- Slogan and character tags -->
+          <div class="poster-text-box">
+            <div class="poster-slogan" id="poster-slogan">燃烧吧！创意！</div>
+            <div class="poster-subtext" id="poster-subtext">释放被冰封的灵感火苗，打破条条框框的枷锁。Angry Molly 以炽热的生命力与真诚，守护每一份不妥协的热爱。</div>
+            <div class="poster-user-badge">
+              <span class="badge-text" id="poster-burn-level">燃力指数: 99%</span>
+              <span class="badge-text" style="background: rgba(255,123,0,0.1); border-color: rgba(255,123,0,0.2); color: var(--color-secondary);">探索真我</span>
+            </div>
+          </div>
+          
+          <!-- Interactive Mini Program QR Code inside the poster -->
+          <div class="poster-qr-box">
+            <img class="poster-qr-img" src="二维码.png" alt="小程序抽盒机码">
+            <span class="poster-qr-tip">微信扫码去抽盒</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Poster Actions -->
+      <div class="poster-actions">
+        <div class="poster-btn-group">
+          <button class="btn-secondary" style="flex: 1;" id="btn-restart">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right: 4px;"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            <span>重燃一次</span>
+          </button>
+          
+          <!-- Redirect button directly calling WeChat drawer mock popup -->
+          <button class="btn-primary" style="flex: 1.8;" id="btn-buy-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
+            <span>泡泡抽盒机抽娃</span>
+          </button>
+        </div>
+        <div class="longpress-tip">💡 截图或长按上图即可保存专属海报</div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         6. WECHAT POPUP OVERLAY (REDirection)
+         ========================================== -->
+    <div class="wechat-popup-overlay" id="wechat-popup-overlay">
+      <div class="wechat-popup">
+        <!-- Close button -->
+        <button class="popup-close" id="popup-close">&times;</button>
+        
+        <div class="popup-title">泡泡玛特微信抽盒机</div>
+        <div class="popup-subtitle">「MOLLY 20周年限定系列」正炽热发售中，扫码即可直达微信小程序抽盒！</div>
+        
+        <div class="popup-qr-wrapper">
+          <img class="popup-qr-img" src="二维码.png" alt="微信抽盒机小程序码">
+          <div class="popup-scan-line"></div>
+        </div>
+        
+        <div class="popup-hint">★ 识别上方二维码 抽取你的燃力伙伴 ★</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Main JavaScript App -->
+  <script src="app.js"></script>
+</body>
+</html>
