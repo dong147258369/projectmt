@@ -54,6 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let hasScratched = false;
   let gameCompleted = false;
   let selectedGameImg = '';
+  let audioCtx = null;
+  let lastSoundTime = 0;
 
   // ==========================================
   // 1. 资源预加载模块
@@ -432,6 +434,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // ==========================================
+  // Web Audio API 声音合成解压音效
+  // ==========================================
+  function initAudio() {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+  }
+
+  function playScratchSound() {
+    try {
+      initAudio();
+      if (!audioCtx) return;
+
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gainNode = audioCtx.createGain();
+      
+      osc.type = 'triangle'; // triangle 声音温和带质感，模拟火花燃破声
+      const freq = 850 + Math.random() * 800; // 随机高频火花声
+      osc.frequency.setValueAtTime(freq, now);
+      osc.frequency.exponentialRampToValueAtTime(120, now + 0.12);
+      
+      gainNode.gain.setValueAtTime(0.02, now); // 轻音量不吵闹
+      gainNode.gain.linearRampToValueAtTime(0.001, now + 0.12);
+      
+      osc.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+      
+      osc.start(now);
+      osc.stop(now + 0.12);
+    } catch (e) {
+      console.warn("Web Audio API not fully supported or restricted by browser:", e);
+    }
+  }
+
   // 绑定 Canvas 事件监听
   function setupCanvasEvents(rect) {
     let lastX = 0;
@@ -439,6 +480,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const startDraw = (clientX, clientY) => {
       isDrawing = true;
+      initAudio(); // 初始化音频上下文以符合浏览器安全策略
+      playScratchSound();
       if (!hasScratched) {
         hasScratched = true;
         swipeInstruction.style.opacity = '0';
@@ -458,7 +501,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const x = clientX - rect.left;
       const y = clientY - rect.top;
-
+      
+      // 限制声音播放频率，模拟火花碎屑燃爆声
+      const nowTime = Date.now();
+      if (nowTime - lastSoundTime > 75) {
+        playScratchSound();
+        lastSoundTime = nowTime;
+      }
+      
       // 刮除线条连接，防漏空
       scratchCtx.save();
       scratchCtx.globalCompositeOperation = 'destination-out';
