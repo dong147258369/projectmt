@@ -147,16 +147,16 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (direction === 'right' && currentCardIndex > 0) {
       currentCardIndex--;
     }
-    
+
     // 计算位移: 卡片宽度 + margin-right
     const cardWidth = 260;
     const cardMargin = 25;
     const offset = currentCardIndex * (cardWidth + cardMargin);
-    
+
     // 居中计算修正 (在 320px ~ 480px 宽度容器中)
     const containerWidth = document.getElementById('timeline-slider-container').clientWidth;
     const centerCorrection = (containerWidth - cardWidth) / 2 - 40; // 40 为左侧 padding
-    
+
     timelineTrack.style.transform = `translateX(${-offset + centerCorrection}px)`;
 
     // 更新卡片激活类
@@ -259,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 渲染对应配置
     const config = moodConfigs[currentMoodIndex];
     gameTitle.textContent = config.title;
-    
+
     // 随机选择一个已知泡泡玛特 IP 形象 (经典小画家 + 5款 Angry Molly + 30款新增盲盒图)
     const knownIPImages = [
       '泡泡玛特添加素材“经典小画家Molly”.jpg',
@@ -281,27 +281,27 @@ document.addEventListener('DOMContentLoaded', () => {
       '微信图片_20260610163930_142_3.jpg',
       '微信图片_20260610163931_143_3.jpg',
       '微信图片_20260610163933_144_3.jpg',
-      '微信图片_20260610163934_145_3.jpg',
-      '微信图片_20260610163936_146_3.jpg',
-      '微信图片_20260610163937_147_3.jpg',
-      '微信图片_20260610163939_148_3.jpg',
-      '微信图片_20260610163940_149_3.jpg',
-      '微信图片_20260610163941_150_3.jpg',
-      '微信图片_20260610163942_151_3.jpg',
-      '微信图片_20260610163943_152_3.jpg',
-      '微信图片_20260610163945_153_3.jpg',
-      '微信图片_20260610163946_154_3.jpg',
-      '微信图片_20260610163947_155_3.jpg',
-      '微信图片_20260610163948_156_3.jpg',
-      '微信图片_20260610163949_157_3.jpg',
-      '微信图片_20260610163949_158_3.jpg',
-      '微信图片_20260610163950_159_3.jpg',
-      '微信图片_20260610163951_160_3.jpg',
-      '微信图片_20260610163952_161_3.jpg'
+      // '微信图片_20260610163934_145_3.jpg',
+      // '微信图片_20260610163936_146_3.jpg',
+      // '微信图片_20260610163937_147_3.jpg',
+      // '微信图片_20260610163939_148_3.jpg',
+      // '微信图片_20260610163940_149_3.jpg',
+      // '微信图片_20260610163941_150_3.jpg',
+      // '微信图片_20260610163942_151_3.jpg',
+      // '微信图片_20260610163943_152_3.jpg',
+      // '微信图片_20260610163945_153_3.jpg',
+      // '微信图片_20260610163946_154_3.jpg',
+      // '微信图片_20260610163947_155_3.jpg',
+      // '微信图片_20260610163948_156_3.jpg',
+      // '微信图片_20260610163949_157_3.jpg',
+      // '微信图片_20260610163949_158_3.jpg',
+      // '微信图片_20260610163950_159_3.jpg',
+      // '微信图片_20260610163951_160_3.jpg',
+      // '微信图片_20260610163952_161_3.jpg'
     ];
     selectedGameImg = knownIPImages[Math.floor(Math.random() * knownIPImages.length)];
     canvasUnderlay.src = selectedGameImg;
-    
+
     // 重置进度和按钮
     gameCompleted = false;
     hasScratched = false;
@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scratchCanvas.height = rect.height * dpr;
     scratchCanvas.style.width = `${rect.width}px`;
     scratchCanvas.style.height = `${rect.height}px`;
-    
+
     scratchCtx = scratchCanvas.getContext('2d');
     scratchCtx.scale(dpr, dpr);
 
@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scratchCtx.textAlign = "center";
     scratchCtx.fillText("SHED YOUR EMOTIONS HERE", rect.width / 2, rect.height / 2 - 20);
     scratchCtx.fillText("FINGER DRAW TO REVEAL MOLLY", rect.width / 2, rect.height / 2 + 10);
-    
+
     // 初始化粒子动画循环
     particles = [];
     if (scratchRafId) cancelAnimationFrame(scratchRafId);
@@ -386,7 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
       this.life = 1.0;
       this.decay = Math.random() * 0.03 + 0.02;
       this.size = Math.random() * 5 + 3;
-      
+
       // 炽热色彩体系：粉红、橙、黄
       const colors = ['#ff3e6c', '#ff7b00', '#ffeb3b', '#7a22ff'];
       this.color = colors[Math.floor(Math.random() * colors.length)];
@@ -450,7 +450,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const y = clientY - rect.top;
       lastX = x;
       lastY = y;
-      
+
       eraseCircle(x, y);
       spawnParticles(x, y);
     };
@@ -460,7 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const x = clientX - rect.left;
       const y = clientY - rect.top;
-      
+
       // 刮除线条连接，防漏空
       scratchCtx.save();
       scratchCtx.globalCompositeOperation = 'destination-out';
@@ -477,7 +477,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lastY = y;
 
       spawnParticles(x, y);
-      
+
       // 每移动几步统计一次刮开率以节省性能
       if (Math.random() < 0.15) {
         checkErasePercentage(rect);
@@ -538,14 +538,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const dpr = window.devicePixelRatio || 1;
     const w = rect.width * dpr;
     const h = rect.height * dpr;
-    
+
     // 获取像素信息进行判断
     try {
       const imgData = scratchCtx.getImageData(0, 0, rect.width * dpr, rect.height * dpr);
       const data = imgData.data;
       let totalPixels = 0;
       let erasedPixels = 0;
-      
+
       // 每 25 个像素采样一次，大幅降低运算负担
       const step = 25 * 4;
       for (let i = 0; i < data.length; i += step) {
@@ -571,11 +571,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function completeScratchGame() {
     gameCompleted = true;
     burnProgressVal.textContent = '100%';
-    
+
     // 渐变消除整个蒙板 Canvas
     scratchCanvas.style.transition = 'opacity 0.6s ease';
     scratchCanvas.style.opacity = '0';
-    
+
     // 激活海报生成按钮
     btnGotoPoster.style.opacity = '1';
     btnGotoPoster.style.pointerEvents = 'auto';
@@ -601,7 +601,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function setupPosterScreen() {
     const config = moodConfigs[currentMoodIndex];
     posterMainImg.src = selectedGameImg;
-    
+
     if (selectedGameImg === '泡泡玛特添加素材“经典小画家Molly”.jpg') {
       posterSlogan.textContent = "执笔追梦，初心不忘！";
       posterSubtext.textContent = "用画笔绘出心中的斑斓王国，以倔强与坚定突破现实的难关。经典小画家 MOLLY 守护你心底那个无拘无束、快乐创作的小孩。";
@@ -618,7 +618,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "每一份期待，都是与美好相遇的伏笔。你的专属限定伙伴已就位，点击下方即刻前往抽盒机开启更多心动旅程！",
         "恭喜抽中20周年限定画作角色！愿你无论身处什么年纪，都保留一份孩童般的纯真与好奇心，勇敢前行。"
       ];
-      
+
       const randIdx = Math.floor(Math.random() * specialSlogans.length);
       posterSlogan.textContent = specialSlogans[randIdx];
       posterSubtext.textContent = specialSubtexts[randIdx];
@@ -626,7 +626,7 @@ document.addEventListener('DOMContentLoaded', () => {
       posterSlogan.textContent = config.slogan;
       posterSubtext.textContent = config.subtext;
     }
-    
+
     // 随机一个完美的燃力指数
     const randomBurn = Math.floor(Math.random() * 6) + 95; // 95 - 100 之间随机
     posterBurnLevel.textContent = `燃力指数: ${randomBurn}%`;
