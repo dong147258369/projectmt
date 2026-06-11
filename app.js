@@ -60,9 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   const imagesToLoad = [
     'LOGO/POPMART logo.png',
-    'LOGO/MOLLY logo.png',
-    '泡泡玛特添加素材“经典小画家Molly”.jpg',
-    '二维码.png'
+    'LOGO/MOLLY logo.png'
   ];
 
   let loadedCount = 0;
@@ -357,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 绘制艺术字 "EMO BURNING LAYER" 作为暗纹
-    scratchCtx.font = "italic bold 18px 'DINPro', Arial, sans-serif";
+    scratchCtx.font = "italic bold 16px system-ui, -apple-system, sans-serif";
     scratchCtx.fillStyle = "rgba(255, 255, 255, 0.04)";
     scratchCtx.textAlign = "center";
     scratchCtx.fillText("SHED YOUR EMOTIONS HERE", rect.width / 2, rect.height / 2 - 20);

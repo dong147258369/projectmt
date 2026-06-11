@@ -1,38 +1,5 @@
 /* MOLLY 20周年「燃燃情绪画室」H5 样式表 */
 
-/* 引入本地授权字体 */
-@font-face {
-  font-family: 'FZLanTingCuHei';
-  src: url('授权字体包/方正兰亭中文/FZLTCHJW.TTF') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'FZLanTingHei';
-  src: url('授权字体包/方正兰亭中文/FZLTHK.TTF') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'DINPro';
-  src: url('授权字体包/DINPro英文/DINPro-Regular.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'DINPro';
-  src: url('授权字体包/DINPro英文/DINPro-Bold.otf') format('opentype');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* 核心变量定义 */
 :root {
   --color-bg: #0b0713;
@@ -46,9 +13,9 @@
   --color-text-muted: #a097b4;
   --color-glass-bg: rgba(255, 255, 255, 0.06);
   --color-glass-border: rgba(255, 255, 255, 0.12);
-  --font-title: 'FZLanTingCuHei', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --font-body: 'FZLanTingHei', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --font-english: 'DINPro', 'Outfit', 'Inter', sans-serif;
+  --font-title: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-english: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
   --shadow-neon: 0 0 15px rgba(255, 62, 108, 0.4);
   --shadow-neon-orange: 0 0 15px rgba(255, 123, 0, 0.4);
 }
